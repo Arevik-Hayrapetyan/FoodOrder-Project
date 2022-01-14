@@ -52,6 +52,7 @@
 }
 
 .food-card {
+  display: block;
   width: 200px;
   height: 200px;
   background-color: antiquewhite;
@@ -108,4 +109,42 @@ ion-icon {
 
 .show-menu {
   transform: translateY(0);
+}
+.food-info {
+  display: block;
+  width: 400px;
+  height: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.food-info-img {
+  width: 100%;
+  margin-top: -120px;
+}
+.pizza-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+a {
+  text-decoration: none !important;
+}
+
+.back-arrow {
+  width: 100px;
+  height: 90px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 9%;
+  cursor: pointer;
+  color: rgb(101, 170, 216);
 }
