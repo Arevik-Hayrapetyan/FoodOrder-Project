@@ -194,9 +194,44 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
-.ordered {
+.ordered-container {
   height: 50px;
   width: 700px;
   background-color: rgba(0, 0, 0, 0.589);
+}
+.order {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 18px;
+}
+.ingredient-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  font-size: 20px;
+  font-weight: 400;
+}
+.ingredient-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn {
+  cursor: pointer;
+  border: none;
+}
+
+.cancel {
+  display: inline-block;
+}
+.counts {
+  display: block;
+  height: 40px;
+  width: 40px;
 }
