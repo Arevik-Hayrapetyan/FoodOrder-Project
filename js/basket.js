@@ -19,8 +19,10 @@ function setItems(key, value) {
 let info;
 window.onload = function loadInfo() {
   const orderList = document.querySelector(".order-list");
-
+  const totalAmount = document.getElementById("total");
+  let totalSum = 0;
   info = getItems("foodInfo");
+
   orderList.innerHTML = info.map(
     (el) =>
       `<div class="order">
@@ -33,6 +35,8 @@ window.onload = function loadInfo() {
       `" class="delete" onClick="handleDelete(${el.id})">delete</button>
 </div>`
   );
+  info.map((el) => (totalSum += el.cost * el.count));
+  totalAmount.innerHTML = "Ընդամենը։" + "  " + totalSum;
 };
 
 function handleDelete(id) {
