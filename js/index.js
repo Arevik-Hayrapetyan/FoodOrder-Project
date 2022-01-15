@@ -1,45 +1,39 @@
-// import { setItems } from "../helpers/localStorage";
-let orderedList = [
-  { foodName: "Peperoni", foodCost: "350", foodCount: "2", amount: "700" },
-];
+function setItems(key, value) {
+  try {
+    const serializedValue = JSON.stringify(value);
+    localStorage.setItem(key, serializedValue);
+  } catch (e) {
+    throw new Error("Please enable local storage!");
+  }
+}
 
-const orderList = document.querySelector(".order-list");
-const addButton = document.querySelector(".add-btn");
+function getItems(key) {
+  try {
+    const serializedItem = localStorage.getItem(key);
+    return JSON.parse(serializedItem);
+  } catch (e) {
+    throw new Error("Please enable local storage!");
+  }
+}
+
 const input = document.querySelector(".counts");
-// const foodName = document.querySelector(".food-name").textContent;
-// const foodCost = document.querySelector(".food-cost").textContent;
-const addCountBtn = document.getElementById("addCountBtn");
-const subCountBtn = document.getElementById("subCountBtn");
 
-addButton.addEventListener("click", addOrder);
-addCountBtn.addEventListener("click", addCount);
-subCountBtn.addEventListener("click", subCount);
+function addOrder() {
+  let foodTitle = document.getElementById("content").innerText;
+  let foodCost = document.getElementById("food-cost").innerText;
+  let cost = Number(foodCost.replace(`Գին $`, ""));
+  let count = Number(document.getElementById("count").value);
+  let foodInfo = getItems("foodInfo");
 
-// function handleOrder() {
-//   setItems("orderedList", [
-//     ...orderedList,
-//     { foodName, foodCost, orderedCount },
-//   ]);
-// }
-function addOrder(event) {
-  event.preventDefault();
-  // const orderDiv = document.createElement("div");
-  // orderDiv.classList.add("order");
-  // const newOrder = document.createElement("li");
-  // newOrder.innerText = foodName;
-  // newOrder.classList.add("order-item");
-  // orderDiv.appendChild(newOrder);
-  orderList.innerHTML = orderedList
-    .map(
-      (el) => `<div class="order">
-  <li>${el.foodName}</li>
-  <div class="price">${el.foodCost}</div>
-  <div class="count">${el.foodCount}</div>
-  <div class="amount">${el.amount}</div>
-  <button class="delete">delete</button>
-</div>`
-    )
-    .join("");
+  setItems(
+    "foodInfo",
+    foodInfo !== null && foodInfo.length > 0
+      ? [...foodInfo, { id: foodInfo.length, foodTitle, cost, count }]
+      : [{ id: 0, foodTitle, cost, count }]
+  );
+  let currentUrl = window.location.href;
+  let nextUrl = currentUrl.replace("menu-itemInfo", "basket");
+  location.href = nextUrl;
 }
 function addCount() {
   subCountBtn.disabled = false;

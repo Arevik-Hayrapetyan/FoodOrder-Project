@@ -34,7 +34,7 @@
         <div class="food-wrapper">
           <div>
             <img src="../img/peperoni.jpg" alt="" class="food-info-img-2" />
-            <p class="food-cost">Գին $350</p>
+            <p class="food-cost" id="food-cost">Գին $350</p>
           </div>
           <div class="ingredient-description">
             <p>Բաղադրությունը</p>
@@ -45,23 +45,25 @@
             </div>
             <div class="ingredient-wrapper">
               <p>Քանակ</p>
-              <button id="addCountBtn" class="btn add-count">
+              <button
+                id="addCountBtn"
+                class="btn add-count"
+                onclick="addCount()"
+              >
                 <ion-icon name="add-outline"></ion-icon>
               </button>
-              <button id="subCountBtn" class="btn">
+              <button id="subCountBtn" class="btn" onclick="subCount()">
                 <ion-icon name="remove-outline"></ion-icon>
               </button>
-              <input class="counts" value="0" disabled />
+              <input class="counts" value="0" disabled id="count" />
             </div>
           </div>
         </div>
-        <a
-          href="basket.html"
-          class="add-btn"
-          id="add-btn"
-          onclick="handleOrder()"
-          >Ավելացնել զամբյուղ</a
-        >
+        <button onclick="addOrder()">
+          <!-- <a href="basket.html" class="add-btn" id="add-btn"
+            >Ավելացնել զամբյուղ</a
+          > -->
+        </button>
       </div>
     </div>
   </body>
