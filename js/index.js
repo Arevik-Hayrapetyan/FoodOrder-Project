@@ -46,3 +46,10 @@ function subCount() {
     subCountBtn.disabled = true;
   }
 }
+// const tableNum = document.getElementById("menu-item");
+// function takeTableNum(selectedNum) {
+//   setItems("selectedNum", selectedNum);
+//   let getNum = getItems("selectedNum");
+//   tableNum.innerHTML = "Սեղանի համարը։" + getNum;
+// }
+// onChange="takeTableNum(this.options[this.selectedIndex].value)"
