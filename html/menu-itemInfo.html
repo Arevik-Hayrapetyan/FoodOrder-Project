@@ -24,18 +24,17 @@
       ></a>
       <ul class="menu">
         <li class="menu-item">Սեղանի համարը</li>
-        <a href="index.html" class="cancel menu-item">Cancel</a>
       </ul>
       <button class="hamburger">
         <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
         <ion-icon name="close-outline" class="close-icon"></ion-icon>
       </button>
       <div class="background" role="img" aria-label="menu-items">
-        <div class="food-title"><h2 class="food-name">Պեպերոնի</h2></div>
+        <div class="food-title"><h2 id="content">Պեպերոնի</h2></div>
         <div class="food-wrapper">
           <div>
             <img src="../img/peperoni.jpg" alt="" class="food-info-img-2" />
-            <p>Գին $350</p>
+            <p class="food-cost">Գին $350</p>
           </div>
           <div class="ingredient-description">
             <p>Բաղադրությունը</p>
@@ -60,7 +59,7 @@
           href="basket.html"
           class="add-btn"
           id="add-btn"
-          onClick="getFoodName()"
+          onclick="handleOrder()"
           >Ավելացնել զամբյուղ</a
         >
       </div>
